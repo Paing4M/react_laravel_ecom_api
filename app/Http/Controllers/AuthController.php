@@ -28,7 +28,7 @@ class AuthController extends Controller {
     ]);
 
     if ($user)
-      $token = $user->createToken('bearer')->plainTextToken;
+      $token = $user->createToken($user->name)->plainTextToken;
 
     return response()->json(
       [
@@ -56,8 +56,12 @@ class AuthController extends Controller {
       ], '401');
     } else {
 
+      if ($user->type === 1) {
+        $token = $user->createToken($user->name . '_adminToken', ['server:admin'])->plainTextToken;
+      } else {
+        $token = $user->createToken($user->name . '_userToken', [''])->plainTextToken;
+      }
 
-      $token = $user->createToken('bearer')->plainTextToken;
 
       return response()->json([
         'token' => $token,
