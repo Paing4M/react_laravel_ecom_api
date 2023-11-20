@@ -92,4 +92,11 @@ class CategoryController extends Controller {
       );
     }
   }
+
+
+  /* Get all enable categories */
+  public function getEnableCategories() {
+    $categories = Category::where('status', '0')->get();
+    return new CategoryCollection($categories);
+  }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +38,10 @@ Route::middleware(['auth:sanctum', 'apiIsAdmin'])->group(function () {
     ]);
   });
 
+  // category routes
   Route::apiResource('/categories', CategoryController::class);
+  Route::get('/enable-categories', [CategoryController::class, 'getEnableCategories']);
+
+  // product routes
+  Route::apiResource('/products', ProductController::class);
 });
