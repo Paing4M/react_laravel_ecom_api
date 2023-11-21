@@ -45,3 +45,4 @@ Route::middleware(['auth:sanctum', 'apiIsAdmin'])->group(function () {
   // product routes
   Route::apiResource('/products', ProductController::class);
 });
+

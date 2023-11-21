@@ -19,8 +19,8 @@ class CategoryController extends Controller {
   /**
    * Display a listing of the resource.
    */
-  public function index() {
-    $categories = Category::all();
+  public function index(Request $request) {
+    $categories = Category::paginate($request->per_page ?? 10);
     return new CategoryCollection($categories);
   }
 

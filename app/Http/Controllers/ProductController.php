@@ -21,8 +21,8 @@ class ProductController extends Controller {
   /**
    * Display a listing of the resource.
    */
-  public function index() {
-    $products = Product::all();
+  public function index(Request $request) {
+    $products = Product::paginate($request->per_page ?? 10);;
     return new ProductCollection($products);
   }
 

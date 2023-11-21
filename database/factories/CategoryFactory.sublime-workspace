@@ -1,0 +1,282 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pri",
+				"print"
+			],
+			[
+				"if",
+				"ifelse\tif … else …"
+			],
+			[
+				"fun",
+				"fun\tFunction"
+			],
+			[
+				"c",
+				"click"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"lsp:e",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"lsp",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"ls",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"lsp: en",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"lsp-",
+				"Preferences: LSP-intelephense Settings"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"open ter",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"terminal",
+				"Terminal: Open in project folder"
+			],
+			[
+				"ope",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"package i",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Lorem ipsum"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/fullstack_pjs/e_commerce_api/database/factories/CategoryFactory.php",
+		"/D/fullstack_pjs/e_commerce_api/routes/api.php",
+		"/D/fullstack_pjs/e_commerce_api/app/Models/Category.php",
+		"/C/Users/Asus/Downloads/test.php",
+		"/C/Users/Asus/Desktop/template/startbootstrap-sb-admin-2-gh-pages/index.html",
+		"/C/Users/Asus/Desktop/template/e com/templates/cart.html",
+		"/C/Users/Asus/Desktop/template/e com/templates/shop.html",
+		"/C/Users/Asus/Desktop/template/e com/templates/index.html",
+		"/C/Users/Asus/Desktop/template/e com/templates/checkout.html",
+		"/D/laravel/testing/e_commerce/public/admin_assets/js/adminlte.min.js",
+		"/C/Users/Asus/Desktop/test/t/index.html",
+		"/C/Users/Asus/Desktop/test/t/script.js",
+		"/D/W_D/assignment_3/todo.js",
+		"/C/Users/Asus/Desktop/template/admin_template/create-subcategory.html",
+		"/C/Users/Asus/Desktop/template/admin_template/subcategory.html",
+		"/C/Users/Asus/Desktop/template/admin_template/create-product.html",
+		"/E/try js pjs/book_list/script.js",
+		"/C/Users/Asus/AppData/Local/Temp/Rar$EXa3508.11919/assignment_3/index.html",
+		"/C/Users/Asus/AppData/Roaming/Sublime Text/Packages/User/Tern.sublime-settings",
+		"/C/Users/Asus/AppData/Roaming/Sublime Text/Packages/tern_for_sublime/Tern.sublime-settings",
+		"/C/Users/Asus/Desktop/template/admin_template/dashboard.html",
+		"/C/Users/Asus/Desktop/Removed Apps.html",
+		"/C/Users/Asus/AppData/Roaming/Sublime Text/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Asus/AppData/Roaming/Sublime Text/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 44.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 44.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.LSP Log Panel":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.diagnostics":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "CategoryFactory.sublime-project",
+	"replace":
+	{
+		"height": 85.6
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 233.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
