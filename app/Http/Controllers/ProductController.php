@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
+use App\Models\Category;
 use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class ProductController extends Controller {
    * Display a listing of the resource.
    */
   public function index(Request $request) {
-    $products = Product::paginate($request->per_page ?? 10);;
+    $products = Product::paginate($request->per_page ?? 10);
     return new ProductCollection($products);
   }
 
@@ -146,5 +147,27 @@ class ProductController extends Controller {
       return response()->json([
         'message' => 'Product deleted successfully.',
       ]);
+  }
+
+  /** get product by category slug */
+
+  public function getProductByCategory($slug , Request $request) {
+    $category = Category::where('slug', $slug)->first();
+
+    if ($category) {
+      $product = Product::where('category_id', $category->id)->where('status', 0)->paginate(6);
+      if (count($product) > 0) {
+
+        return new ProductCollection($product);
+      } else {
+        return response()->json([
+          'message' => 'Product not found.'
+        ], 404);
+      }
+    } else {
+      return response()->json([
+        'message' => 'Category not found.'
+      ], 404);
+    }
   }
 }

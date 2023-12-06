@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -46,3 +47,11 @@ Route::middleware(['auth:sanctum', 'apiIsAdmin'])->group(function () {
   Route::apiResource('/products', ProductController::class);
 });
 
+// product
+Route::get('/get-product-by-category/{slug}', [ProductController::class, 'getProductByCategory']);
+
+// cart
+Route::post('/add-to-cart', [CartController::class, 'addToCart']);
+Route::get('/cart-items' , [CartController::class , 'cartItems']);
+Route::patch('/cart-items-updateQty/{id}' , [CartController::class , 'updateCartProductQty']);
+Route::delete('/cart-item-delete/{id}' , [CartController::class , 'deleteCartProduct']);

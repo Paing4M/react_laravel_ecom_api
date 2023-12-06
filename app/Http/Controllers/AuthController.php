@@ -20,7 +20,6 @@ class AuthController extends Controller {
       'password_confirmation.same' => 'Password does not match.'
     ]);
 
-
     $user = $user->create([
       'name' => $validator['name'],
       'email' => $validator['email'],
@@ -77,3 +76,4 @@ class AuthController extends Controller {
     ]);
   }
 }
+
