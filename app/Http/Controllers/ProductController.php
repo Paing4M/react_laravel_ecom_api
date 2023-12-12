@@ -17,14 +17,14 @@ class ProductController extends Controller {
 
   public function __construct(ProductRepository $repository) {
     $this->repository = $repository;
-    $this->middleware('apiIsAdmin')->except('index' , 'show' , 'getProductByCategory');
+    $this->middleware('apiIsAdmin')->except('index' , 'show' , 'getProductByCategory' , 'getRandom');
   }
 
   /**
    * Display a listing of the resource.
    */
   public function index(Request $request) {
-    $products = Product::paginate($request->per_page ?? 10);
+    $products = Product::orderBy('created_at' , 'desc')->paginate($request->per_page ?? 10);
     return new ProductCollection($products);
   }
 
@@ -84,7 +84,6 @@ class ProductController extends Controller {
    * Update the specified resource in storage.
    */
   public function update(Request $request, Product $product) {
-
 
     $payload = $request->only([
       'category_id',
@@ -156,7 +155,7 @@ class ProductController extends Controller {
     $category = Category::where('slug', $slug)->first();
 
     if ($category) {
-      $product = Product::where('category_id', $category->id)->where('status', 0)->paginate(6);
+      $product = Product::where('category_id', $category->id)->where('status', 0)->orderBy('created_at' , 'desc')->paginate(6);
       if (count($product) > 0) {
 
         return new ProductCollection($product);
@@ -170,6 +169,12 @@ class ProductController extends Controller {
         'message' => 'Category not found.'
       ], 404);
     }
+  }
+
+  public function getRandom()
+  {
+    $products = Product::query()->inRandomOrder()->limit(5)->get();
+    return response()->json($products);
   }
 
 }

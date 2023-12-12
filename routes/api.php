@@ -50,6 +50,7 @@ Route::middleware(['auth:sanctum' ])->group(function () {
 // product
 Route::get('/get-product-by-category/{slug}', [ProductController::class, 'getProductByCategory']);
 Route::get('/enable-categories', [CategoryController::class, 'getEnableCategories']);
+Route::get('/random_products', [ProductController::class, 'getRandom']);
 
 // cart
 Route::post('/add-to-cart', [CartController::class, 'addToCart']);
@@ -58,7 +59,9 @@ Route::patch('/cart-items-updateQty/{id}' , [CartController::class , 'updateCart
 Route::delete('/cart-item-delete/{id}' , [CartController::class , 'deleteCartProduct']);
 Route::delete('/cart-delete' ,[CartController::class , 'deleteCart']);
 
+// order
+Route::get('/orders' , [\App\Http\Controllers\OrderController::class , 'getOrders'])->middleware(['auth:sanctum' , 'apiIsAdmin']);
 
-//stripe
+// stripe
 Route::post('/checkout' , [StripeController::class , 'checkout']);
 Route::post('/check-payment-success' , [StripeController::class , 'checkSuccessPayment']);

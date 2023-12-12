@@ -20,7 +20,7 @@ class CategoryController extends Controller {
    * Display a listing of the resource.
    */
   public function index(Request $request) {
-    $categories = Category::paginate($request->per_page ?? 10);
+    $categories = Category::orderBy('created_at' , 'desc')->paginate($request->per_page ?? 10);
     return new CategoryCollection($categories);
   }
 
@@ -96,7 +96,7 @@ class CategoryController extends Controller {
 
   /* Get all enable categories */
   public function getEnableCategories() {
-    $categories = Category::where('status', '0')->get();
+    $categories = Category::where('status', '0')->orderBy('created_at' , 'desc')->get();
     return new CategoryCollection($categories);
   }
 }
