@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,16 +33,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 
-Route::middleware(['auth:sanctum', 'apiIsAdmin'])->group(function () {
+Route::middleware(['auth:sanctum' ])->group(function () {
   Route::get('/isAuthenticated', function () {
     return response()->json([
       'message' => 'Authenticated.'
     ]);
-  });
+  })->middleware('apiIsAdmin');
 
   // category routes
   Route::apiResource('/categories', CategoryController::class);
-  Route::get('/enable-categories', [CategoryController::class, 'getEnableCategories']);
 
   // product routes
   Route::apiResource('/products', ProductController::class);
@@ -49,9 +49,16 @@ Route::middleware(['auth:sanctum', 'apiIsAdmin'])->group(function () {
 
 // product
 Route::get('/get-product-by-category/{slug}', [ProductController::class, 'getProductByCategory']);
+Route::get('/enable-categories', [CategoryController::class, 'getEnableCategories']);
 
 // cart
 Route::post('/add-to-cart', [CartController::class, 'addToCart']);
 Route::get('/cart-items' , [CartController::class , 'cartItems']);
 Route::patch('/cart-items-updateQty/{id}' , [CartController::class , 'updateCartProductQty']);
 Route::delete('/cart-item-delete/{id}' , [CartController::class , 'deleteCartProduct']);
+Route::delete('/cart-delete' ,[CartController::class , 'deleteCart']);
+
+
+//stripe
+Route::post('/checkout' , [StripeController::class , 'checkout']);
+Route::post('/check-payment-success' , [StripeController::class , 'checkSuccessPayment']);

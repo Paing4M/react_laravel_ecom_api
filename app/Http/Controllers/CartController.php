@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller {
   public function addToCart(Request $request) {
@@ -16,27 +17,28 @@ class CartController extends Controller {
       $checkProduct = Product::query()->where('id', $product_id)->first();
 
       if ($checkProduct) {
-        if(Cart::query()->where('product_id' , $product_id)->where('user_id' , $user_id)->exists()){
           // if already exit in cart increase the qty
-          $cartProduct = Cart::findOrFail($product_id);
-          $cartProduct->product_qty = $product_qty + $cartProduct->product_qty;
-          $cartProduct->save();
-          return response()->json([
-            'status' => 201,
-            'message' => 'Successfully added to cart.'
-          ]);
-        } else {
-          $cart = new Cart();
-          $cart->user_id = $user_id;
-          $cart->product_id = $product_id;
-          $cart->product_qty = $product_qty;
-          $cart->save();
-          return response()->json([
-            'status' => 201,
-            'message' => 'Successfully added to cart.',
-          ]);
+          $cartProduct = Cart::query()->where('product_id' , $product_id)->where('user_id' , $user_id)->first();
 
-        }
+          if($cartProduct){
+            $cartProduct->product_qty = $product_qty + $cartProduct->product_qty;
+            $cartProduct->save();
+            return response()->json([
+              'status' => 201,
+              'message' => 'Successfully added to cart.'
+            ]);
+          } else {
+              $cart = new Cart();
+              $cart->user_id = $user_id;
+              $cart->product_id = $product_id;
+              $cart->product_qty = $product_qty;
+              $cart->save();
+              return response()->json([
+                'status' => 201,
+                'message' => 'Successfully added to cart.',
+              ]);
+          }
+
       } else {
         return response()->json([
           'status' => 404,
@@ -100,4 +102,14 @@ class CartController extends Controller {
     }
   }
 
+  public function deleteCart(Request $request)
+  {
+    $deleted = Cart::where('user_id', auth('sanctum')->user()->id)->delete();
+    if($deleted) {
+      return response()->json([
+        'message' => 'Success deleted.',
+        'status' => 200
+      ]);
+    }
+  }
 }

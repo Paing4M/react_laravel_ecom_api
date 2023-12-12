@@ -17,6 +17,7 @@ class ProductController extends Controller {
 
   public function __construct(ProductRepository $repository) {
     $this->repository = $repository;
+    $this->middleware('apiIsAdmin')->except('index' , 'show' , 'getProductByCategory');
   }
 
   /**
@@ -170,4 +171,5 @@ class ProductController extends Controller {
       ], 404);
     }
   }
+
 }
